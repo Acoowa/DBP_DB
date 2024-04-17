@@ -1,31 +1,31 @@
 -- Create regions table
-CREATE TABLE Regions
+CREATE TABLE Region
 (
     id   serial PRIMARY KEY,
     name VARCHAR
 );
 
 -- Create locations tale
-CREATE TABLE Locations
+CREATE TABLE Location
 (
     id        serial PRIMARY KEY,
     name      VARCHAR,
     address   VARCHAR,
-    region_id INTEGER REFERENCES Regions (id)
+    region_id INTEGER REFERENCES Region (id)
 );
 
 -- Create Departments table
 
-CREATE TABLE Departments
+CREATE TABLE Department
 (
     id          serial PRIMARY KEY,
     name        VARCHAR,
-    location_id INTEGER REFERENCES Locations (id),
+    location_id INTEGER REFERENCES Location (id),
     manager_id  INTEGER
 );
 
 --Create employees table
-CREATE TABLE Employees
+CREATE TABLE Employee
 (
     id            serial PRIMARY KEY,
     name          VARCHAR,
@@ -33,6 +33,6 @@ CREATE TABLE Employees
     hire_date     DATE,
     salary        INTEGER,
     email         VARCHAR,
-    manager_id    INTEGER REFERENCES Employees (id),
-    department_id INTEGER REFERENCES Departments (id)
+    manager_id    INTEGER REFERENCES Employee (id),
+    department_id INTEGER REFERENCES Department (id)
 );
