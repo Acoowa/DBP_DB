@@ -21,9 +21,8 @@ CREATE TABLE Department
     id          serial PRIMARY KEY,
     name        VARCHAR,
     location_id INTEGER REFERENCES Location (id),
-    manager_id  INTEGER
+    manager_id INTEGER
 );
-
 --Create employees table
 CREATE TABLE Employee
 (
@@ -36,3 +35,8 @@ CREATE TABLE Employee
     manager_id    INTEGER REFERENCES Employee (id),
     department_id INTEGER REFERENCES Department (id)
 );
+
+ALTER TABLE Department
+ADD CONSTRAINT fk_department_employee
+FOREIGN KEY (manager_id)
+REFERENCES Employee (id)
