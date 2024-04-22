@@ -2,7 +2,7 @@
 SELECT *
 FROM Employee
 WHERE email IS NULL
-   OR NOT (email LIKE '%dualbootpartners.com');
+   OR NOT (email LIKE '%@dualbootpartners.com');
 
 -- Получить список работников нанятых в последние 30 дней
 SELECT *
